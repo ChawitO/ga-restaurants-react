@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -27,10 +28,9 @@ export default class Restaurant extends React.Component {
 
   render() {
     if (!this.state.restData || !this.state.reviewData) return null
-    const { thumb, name, featured_image,
+    const { name, featured_image,
       location: { locality, address }, establishment,
       user_rating: { aggregate_rating, rating_text, rating_color },
-      all_reviews: { reviews },
       all_reviews_count, phone_numbers, cuisines, average_cost_for_two, currency, url, timings, highlights,
       menu_url, photos
     } = this.state.restData

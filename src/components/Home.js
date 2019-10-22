@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -45,7 +46,6 @@ export default class Home extends React.Component {
     const city = `entity_id=${this.state.selectedCity}&entity_type=city`
     const cuisines = `cuisines=${this.state.selectedCuisines.join(',')}`
     const url = `https://developers.zomato.com/api/v2.1/search?${city}&q=${this.state.searchTerm}&${cuisines}`
-    console.log(url)
     axios.get(url, this.header)
       .then(res => this.setState({ restaurantSuggestions: res.data.restaurants }))
       .catch(err => console.log(err))
@@ -85,8 +85,7 @@ export default class Home extends React.Component {
             <div className='flex-wrapper city-list'>
               {citySuggestions && citySuggestions.map(loc => (
                 <Item className={`item ${selectedCity === loc.id ? 'active' : ''}`} key={loc.id} {...loc} onClick={this.selectCity} />
-                ))
-              }
+              ))}
             </div>
           </div>
         </header>
